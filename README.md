@@ -1,5 +1,13 @@
 # Spark Workshop
 
+This repository contains the Spark demo associated with the presentation
+[Scalable Data Storage and Data Processing](https://prezi.com/p/dplwgzvust1v/data-scalability-2/?present=1).
+
+You can move it to full screen by pressing the icon on the bottom-right corner of the presentation.
+
+To watch the Big Data part only, click on the Big Data cloud first.
+Then, you can move on with the arrow keys.
+
 ## System Requirements
 
 This workshop uses two approaches for running Spark:
