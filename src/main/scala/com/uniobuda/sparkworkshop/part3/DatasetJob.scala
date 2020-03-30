@@ -2,14 +2,9 @@ package com.uniobuda.sparkworkshop.part3
 
 import org.apache.spark.sql.{Encoders, SparkSession}
 
-object FrameSet {
+object DatasetJob {
 
-  def process(): Unit = {
-    val spark = SparkSession.builder()
-      .master("local[*]")
-      .appName("FrameApp")
-      .getOrCreate()
-
+  def process(spark: SparkSession): Unit = {
     implicit val encoder = Encoders.product[Laureate]
 
     val df = spark.read
@@ -23,8 +18,6 @@ object FrameSet {
     for (laureate <- result) {
       println(laureate)
     }
-
-    spark.close()
   }
 
 }

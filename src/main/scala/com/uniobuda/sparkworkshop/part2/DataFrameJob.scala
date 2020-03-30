@@ -2,14 +2,9 @@ package com.uniobuda.sparkworkshop.part2
 
 import org.apache.spark.sql.SparkSession
 
-object Frame {
+object DataFrameJob {
 
-  def process(): Unit = {
-    val spark = SparkSession.builder()
-      .master("local[*]")
-      .appName("FrameApp")
-      .getOrCreate()
-
+  def process(spark: SparkSession): Unit = {
     val df = spark.read
       .format("csv")
       .option("header", "true")
@@ -21,8 +16,6 @@ object Frame {
     for (row <- result) {
       println(row)
     }
-
-    spark.close()
   }
 
 }
