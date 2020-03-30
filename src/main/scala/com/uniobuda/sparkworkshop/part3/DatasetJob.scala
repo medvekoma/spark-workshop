@@ -15,7 +15,7 @@ object DatasetJob {
       .as[Laureate]
     val result = df
       .filter(_.bornCountryCode == "HU")
-      .orderBy('year)
+      .sort('year)
 
     for (laureate <- result) {
       println(laureate)
