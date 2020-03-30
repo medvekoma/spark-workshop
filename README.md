@@ -32,15 +32,13 @@ Open a terminal window and start the spark console:
 
 ```bash
 # Go to the source folder
-cd code/spark-workshop/
+cd ~/code/spark-workshop/
 # Start Spark Shell
 spark-shell
 ```
 
 Find the address of the Spark context Web UI in the output lines 
 and open it in a browser (It should be something like http://10.0.2.15:4040).
-
-## Examples
 
 ### Parallelization
 
@@ -65,7 +63,7 @@ evens.collect
 // Check UI again - DAG Visualization
 ```
 
-## Word Count example
+### Word Count example
 
 ```scala
 val wordCount = sc
@@ -92,6 +90,23 @@ val longWords = wordCount
 // Can be avoided by caching temporary results
 wordCount.cache
 ```
+
+## Run the Scala code
+
+The two ways to run the code are described below.
+In both cases observe the URL of the Spark UI, and open it in a browser.
+
+### From command line
+
+```bash
+cd ~/code/spark-workshop/
+sbt run
+```
+
+### From the code editor
+
+* Start IntelliJ from the left side panel
+* Run Program.scala
 
 ## Homework
 
