@@ -3,6 +3,7 @@ package com.uniobuda.sparkworkshop
 import com.uniobuda.sparkworkshop.part1.WordCount
 import com.uniobuda.sparkworkshop.part2.DataFrameJob
 import com.uniobuda.sparkworkshop.part3.DatasetJob
+import com.uniobuda.sparkworkshop.part4.SparkSQLJob
 import org.apache.spark.sql.SparkSession
 
 import scala.io.StdIn
@@ -29,6 +30,7 @@ object Program extends App {
         | 1 - Spark Core (WordCount)
         | 2 - DataFrame
         | 3 - DataSet
+        | 4 - Spark SQL
         | 0 - exit
         |""".stripMargin)
     StdIn.readChar()
@@ -39,6 +41,7 @@ object Program extends App {
       case '1' => WordCount.process(spark)
       case '2' => DataFrameJob.process(spark)
       case '3' => DatasetJob.process(spark)
+      case '4' => SparkSQLJob.process(spark)
       case '0' => println("Bye!")
       case _ => println("ERROR: Unknown input")
     }

@@ -84,3 +84,9 @@ val longWords = wordCount
 // Can be avoided by caching temporary results
 wordCount.cache
 ```
+
+## Homework
+
+Display the top 10 countries by number of Nobel laureates in Physics.
+* Output columns: Country code, country name, number of laureates
+* Use all 3 approaches: DataFrame, DataSet, SparkSQL

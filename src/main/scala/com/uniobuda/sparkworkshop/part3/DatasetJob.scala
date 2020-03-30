@@ -7,13 +7,15 @@ object DatasetJob {
   def process(spark: SparkSession): Unit = {
     implicit val encoder = Encoders.product[Laureate]
 
+    import spark.implicits._
+
     val df = spark.read
       .option("header", "true")
       .csv("nobel-laureates.csv")
       .as[Laureate]
     val result = df
       .filter(_.bornCountryCode == "HU")
-      .collect()
+      .orderBy('year)
 
     for (laureate <- result) {
       println(laureate)
