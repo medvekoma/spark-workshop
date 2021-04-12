@@ -40,7 +40,7 @@ spark-shell
 Find the address of the Spark context Web UI in the output lines 
 and open it in a browser (It should be something like http://10.0.2.15:4040).
 
-[Open the Spark shell demo doc](./SparkShellDemo.md)
+Open the [Spark shell demo](./SparkShellDemo.md) documentation.
 
 ## Run the Scala code
 
