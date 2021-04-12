@@ -149,7 +149,7 @@ val wordCount = sc
 ### DataFrame
 
 ```scala
-val result = spark.read.text("nobel-laureates.csv")
+val wordCount = spark.read.text("nobel-laureates.csv")
 	.select(
 		explode(
 			split(col("value"), "[, \"]")
