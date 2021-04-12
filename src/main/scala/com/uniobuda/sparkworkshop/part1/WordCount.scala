@@ -23,6 +23,7 @@ object WordCount {
       .sortBy(pair => pair._2, false)
 
     result
+//      .coalesce(1)
       .saveAsTextFile(s"file://$outputFolderName")
 
     result.foreach {

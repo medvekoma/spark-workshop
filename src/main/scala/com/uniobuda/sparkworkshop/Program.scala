@@ -13,6 +13,7 @@ object Program extends App {
   val spark = SparkSession.builder()
     .master("local[*]")
     .appName("FrameApp")
+    .config("spark.sql.shuffle.partitions", "3")
     .getOrCreate()
 
   var choice = Char.MinValue
