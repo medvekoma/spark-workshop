@@ -85,7 +85,7 @@ case class Person(
 )
 
 // Create dataset and do the same using lambdas
-val personsDS = personsDF.toDS
+val personsDS = personsDF.as[Person]
 
 val namesDS = personsDS.filter(_.age > 35).map(p => (p.name.first, p.name.last))
 
@@ -158,9 +158,6 @@ val wordCount = spark.read.text("nobel-laureates.csv")
 	.groupBy("word")
 	.count()
 	.filter("count > 60")
-	.collect
-	
-	.sort(desc("count"))
 	.collect
 
 // Check on the UI the number of tasks
