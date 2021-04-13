@@ -1,12 +1,6 @@
 # Spark Workshop
 
-This repository contains the Spark demo associated with the presentation
-[Scalable Data Storage and Data Processing](https://prezi.com/p/dplwgzvust1v/data-scalability-2/?present=1).
-
-You can move it to full screen by pressing the icon on the bottom-right corner of the presentation.
-
-To watch the Big Data part only, click on the Big Data cloud first.
-Then, you can move on with the arrow keys.
+This repository contains the Spark demo associated with an introductory Spark presentation.
 
 ## System Requirements
 
@@ -26,6 +20,20 @@ more than 1 CPUs assigned to your VirtualBox image.
 
 ![CPU count](img/vm-cpu.png)
 
+## Clean up VM
+
+The virtual image distributed has the [original version](https://github.com/medvekoma/spark-workshop) of this repository checked out.
+
+You need to either upgrade your Git remote references or just remove the folder and clone this repository.
+```bash
+cd ~/code
+
+rm -rf spark-workshop/
+
+git clone https://github.com/david-szabo-epam/spark-workshop.git
+```
+
+
 ## Running Spark from the command line
 
 Open a terminal window and start the spark console:
@@ -41,6 +49,8 @@ Find the address of the Spark context Web UI in the output lines
 and open it in a browser (It should be something like http://10.0.2.15:4040).
 
 Open the [Spark shell demo](./SparkShellDemo.md) documentation.
+
+Spark shell [demo on streaming](./StreamingDemo.md) is available in a different document.
 
 ## Run the Scala code
 
