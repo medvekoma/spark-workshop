@@ -9,6 +9,7 @@ import org.apache.spark.sql.SparkSession
 import scala.io.StdIn
 
 object Program extends App {
+//  System.setProperty("hadoop.home.dir", "C:\\hadoop")
 
   val spark = SparkSession.builder()
     .master("local[*]")

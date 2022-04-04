@@ -8,10 +8,9 @@ This workshop uses two approaches for running Spark:
 * The command line interface `spark-shell`
 * The embedded Spark in the Scala SBT application.
 
-We provided a VM that has all dependencies pre-installed. 
+## Running Spark from the command line
 
-Running the examples directly is also possible after 
-[installing Spark](https://www.knowledgehut.com/blog/big-data/install-spark-on-ubuntu).
+We provided a VM that has all dependencies pre-installed for spark shell.
 
 ### Using the VM
 
@@ -20,21 +19,9 @@ more than 1 CPUs assigned to your VirtualBox image.
 
 ![CPU count](img/vm-cpu.png)
 
-## Clean up VM
+Running the examples directly (without VM) is also possible after installing Spark.
 
-The virtual image distributed has the [original version](https://github.com/medvekoma/spark-workshop) of this repository checked out.
-
-You need to either upgrade your Git remote references or just remove the folder and clone this repository.
-```bash
-cd ~/code
-
-rm -rf spark-workshop/
-
-git clone https://github.com/david-szabo-epam/spark-workshop.git
-```
-
-
-## Running Spark from the command line
+### Running the samples
 
 Open a terminal window and start the spark console:
 
@@ -50,24 +37,15 @@ and open it in a browser (It should be something like http://10.0.2.15:4040).
 
 Open the [Spark shell demo](./SparkShellDemo.md) documentation.
 
-Spark shell [demo on streaming](./StreamingDemo.md) is available in a different document.
-
 ## Run the Scala code
 
-The two ways to run the code are described below.
-In both cases observe the URL of the Spark UI, and open it in a browser.
-
-### From command line
-
-```bash
-cd ~/code/spark-workshop/
-sbt run
-```
-
-### From the code editor
-
-* Start IntelliJ from the left side panel
+* Start IntelliJ
+* File menu > New > Project from Version control...
+* Provide the url from github
+* Set Directory to where you want to download the files on your loval machine
 * Run Program.scala
+
+Note the URL of the Spark UI, and open it in a browser.
 
 ## Homework
 

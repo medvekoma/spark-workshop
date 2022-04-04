@@ -159,12 +159,4 @@ val wordCount = spark.read.text("nobel-laureates.csv")
 	.count()
 	.filter("count > 60")
 	.collect
-
-// Check on the UI the number of tasks
-
-// Set number of parttions while shuffling
-spark.conf.set("spark.sql.shuffle.partitions", "3")
-
-// Try again
-
 ```

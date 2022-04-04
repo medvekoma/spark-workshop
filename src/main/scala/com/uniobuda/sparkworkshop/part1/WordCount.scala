@@ -16,7 +16,7 @@ object WordCount {
     outputFolder.deleteRecursively()
 
     val result = spark.sparkContext
-      .textFile(s"file:///$userHome/code/spark-workshop/nobel-laureates.csv", 4)
+      .textFile("nobel-laureates.csv", 4)
       .flatMap(line => line.split(Array(' ', ',', '"')))
       .map(word => (word, 1))
       .reduceByKey((a,b) => a + b)
@@ -24,7 +24,7 @@ object WordCount {
 
     result
 //      .coalesce(1)
-      .saveAsTextFile(s"file://$outputFolderName")
+      .saveAsTextFile(s"file:///$outputFolderName")
 
     result.foreach {
       case (word, count) => println(s"$word: $count")
