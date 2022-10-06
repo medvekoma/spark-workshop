@@ -1,11 +1,14 @@
-package com.uniobuda.sparkworkshop.part2
+package net.medvekoma.sparkworkshop.part2
 
-import org.apache.spark.sql.SparkSession
+import net.medvekoma.sparkworkshop.SparkFactory
 
-object DataFrameJob {
+import scala.util.Using
 
-  def process(spark: SparkSession): Unit = {
-    val userHome = System.getProperty("user.home")
+object DataFrameJob extends App {
+
+  val userHome = System.getProperty("user.home")
+
+  Using(SparkFactory.create()) { spark =>
 
     val df = spark.read
       .format("csv")

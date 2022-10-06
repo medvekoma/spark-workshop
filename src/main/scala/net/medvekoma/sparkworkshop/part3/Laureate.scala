@@ -1,4 +1,4 @@
-package com.uniobuda.sparkworkshop.part3
+package net.medvekoma.sparkworkshop.part3
 
 case class Laureate(
     year: String,

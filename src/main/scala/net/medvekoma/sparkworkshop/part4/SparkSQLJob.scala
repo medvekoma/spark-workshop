@@ -1,10 +1,13 @@
-package com.uniobuda.sparkworkshop.part4
+package net.medvekoma.sparkworkshop.part4
 
-import org.apache.spark.sql.SparkSession
+import net.medvekoma.sparkworkshop.SparkFactory
 
-object SparkSQLJob {
+import scala.util.Using
 
-  def process(spark: SparkSession): Unit = {
+object SparkSQLJob extends App {
+
+  Using(SparkFactory.create()) { spark =>
+
     spark.read
       .format("csv")
       .option("header", "true")
