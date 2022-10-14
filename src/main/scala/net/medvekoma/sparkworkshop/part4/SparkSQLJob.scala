@@ -1,12 +1,13 @@
 package net.medvekoma.sparkworkshop.part4
 
-import net.medvekoma.sparkworkshop.SparkFactory
+import net.medvekoma.sparkworkshop.SparkSessionFactory.RichSparkSession
+import net.medvekoma.sparkworkshop.SparkSessionFactory
 
 import scala.util.Using
 
 object SparkSQLJob extends App {
 
-  Using(SparkFactory.create()) { spark =>
+  Using.resource(SparkSessionFactory.create()) { spark =>
 
     spark.read
       .format("csv")
@@ -35,6 +36,7 @@ object SparkSQLJob extends App {
     for (row <- result) {
       println(row)
     }
-  }
 
+    spark.checkUI()
+  }
 }

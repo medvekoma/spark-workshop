@@ -33,7 +33,8 @@ evens.collect
 val numbersDF = (0 to 99).toDF
 
 // Filter with column methods
-val evenNumbersDF = numbersDF.filter(col("value").mod(2).equalTo(0))
+val evenNumbersDF = numbersDF
+  .filter(col("value").mod(2).equalTo(0))
 
 // Collect
 evenNumbersDF.collect

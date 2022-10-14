@@ -1,7 +1,8 @@
 package net.medvekoma.sparkworkshop.part3
 
-import net.medvekoma.sparkworkshop.SparkFactory
-import org.apache.spark.sql.{Encoders, SparkSession}
+import net.medvekoma.sparkworkshop.SparkSessionFactory
+import net.medvekoma.sparkworkshop.SparkSessionFactory.RichSparkSession
+import org.apache.spark.sql.Encoders
 
 import scala.util.Using
 
@@ -9,8 +10,7 @@ object DatasetJob extends App {
 
   implicit val encoder = Encoders.product[Laureate]
 
-  Using(SparkFactory.create()) { spark =>
-    import spark.implicits._
+  Using.resource(SparkSessionFactory.create()) { spark =>
 
     val df = spark.read
       .option("header", "true")
@@ -25,6 +25,7 @@ object DatasetJob extends App {
     for (laureate <- result) {
       println(laureate)
     }
-  }
 
+    spark.checkUI()
+  }
 }

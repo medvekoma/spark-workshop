@@ -1,6 +1,7 @@
 package net.medvekoma.sparkworkshop.part2
 
-import net.medvekoma.sparkworkshop.SparkFactory
+import net.medvekoma.sparkworkshop.SparkSessionFactory
+import net.medvekoma.sparkworkshop.SparkSessionFactory.RichSparkSession
 
 import scala.util.Using
 
@@ -8,7 +9,7 @@ object DataFrameJob extends App {
 
   val userHome = System.getProperty("user.home")
 
-  Using(SparkFactory.create()) { spark =>
+  Using.resource(SparkSessionFactory.create()) { spark =>
 
     val df = spark.read
       .format("csv")
@@ -18,13 +19,16 @@ object DataFrameJob extends App {
 
 //    df.cache()
 
-    df.write.mode("overwrite").json(s"$userHome/hungarians")
+    df.write
+      .mode("overwrite")
+      .json(s"$userHome/hungarians")
 
     val result = df.collect()
 
     for (row <- result) {
       println(row)
     }
-  }
 
+    spark.checkUI()
+  }
 }
