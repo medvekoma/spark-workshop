@@ -1,6 +1,6 @@
-package net.medvekoma.scala
+package net.medvekoma.quizzes
 
-object Kahoot0 extends App {
+object Quiz0 extends App {
 
   val strings = List(
     "one,two,three",

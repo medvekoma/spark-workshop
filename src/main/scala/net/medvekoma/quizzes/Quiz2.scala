@@ -1,6 +1,6 @@
-package net.medvekoma.scala
+package net.medvekoma.quizzes
 
-object Kahoot1 extends App {
+object Quiz2 extends App {
 
   val numbers = LazyList.from(1 to 10)
 
@@ -8,6 +8,6 @@ object Kahoot1 extends App {
     println(number)
     number % 2 == 0
   }
-  println("Count:")
-  println(evens.size)
+  println("Count:", evens.size)
+  println("Elements:", evens.toList)
 }

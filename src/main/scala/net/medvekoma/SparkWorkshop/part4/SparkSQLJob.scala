@@ -1,7 +1,7 @@
-package net.medvekoma.sparkworkshop.part4
+package net.medvekoma.SparkWorkshop.part4
 
-import net.medvekoma.sparkworkshop.SparkSessionFactory.RichSparkSession
-import net.medvekoma.sparkworkshop.SparkSessionFactory
+import net.medvekoma.SparkWorkshop.SparkSessionFactory.RichSparkSession
+import net.medvekoma.SparkWorkshop.SparkSessionFactory
 
 import scala.util.Using
 
@@ -29,13 +29,12 @@ object SparkSQLJob extends App {
         |ORDER BY num DESC
         |LIMIT 20
         |""".stripMargin
-    val df = spark.sql(sqlText)
-    val result = df
-      .collect()
 
-    for (row <- result) {
-      println(row)
-    }
+    val dataFrame = spark.sql(sqlText)
+
+    dataFrame.printSchema()
+
+    dataFrame.show(100)
 
     spark.checkUI()
   }

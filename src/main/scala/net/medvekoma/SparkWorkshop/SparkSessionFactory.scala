@@ -1,4 +1,4 @@
-package net.medvekoma.sparkworkshop
+package net.medvekoma.SparkWorkshop
 
 import org.apache.spark.sql.SparkSession
 

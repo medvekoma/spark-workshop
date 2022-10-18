@@ -1,7 +1,7 @@
-package net.medvekoma.sparkworkshop.part3
+package net.medvekoma.SparkWorkshop.part3
 
-import net.medvekoma.sparkworkshop.SparkSessionFactory
-import net.medvekoma.sparkworkshop.SparkSessionFactory.RichSparkSession
+import net.medvekoma.SparkWorkshop.SparkSessionFactory
+import net.medvekoma.SparkWorkshop.SparkSessionFactory.RichSparkSession
 import org.apache.spark.sql.Encoders
 
 import scala.util.Using
@@ -12,12 +12,12 @@ object DatasetJob extends App {
 
   Using.resource(SparkSessionFactory.create()) { spark =>
 
-    val df = spark.read
+    val dataset = spark.read
       .option("header", "true")
       .csv("nobel-laureates.csv")
       .as[Laureate]
 
-    val result = df
+    val result = dataset
       .filter(_.bornCountryCode == "HU")
       .sort("year")
       .collect
