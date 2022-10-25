@@ -14,8 +14,11 @@ object DatasetJob extends App {
 
     val dataset = spark.read
       .option("header", "true")
+      .schema(encoder.schema)
       .csv("nobel-laureates.csv")
       .as[Laureate]
+
+    dataset.printSchema()
 
     val result = dataset
       .filter(_.bornCountryCode == "HU")
